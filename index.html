@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" >
+</head>
+<body>
+    <h1 class="header">Team Goa</h1>
+    <div class="section1">
+        <div class="left">Mates
+           <div class="pics">
+             <div class="image"><img src="pranith.jpg"></div>
+             <div class="image"><img src="shekar.jpg"></div>
+             <div class="image"><img src="subbu.jpg"></div>
+             <div class="image"><img src="subani.jpg"></div>
+             <div class="image"><img src="lakshman.jpg"></div>
+             <div class="image"><img src="ajay.jpg"></div>
+             <div class="image"></div>
+             <div class="image"><img src="naghi.jpg"></div>
+            </div>
+        </div>
+        <div class="right"id="Rice">Rice
+            <div class="tick">
+                <form>
+                    <input class="check" type="checkbox" id="shekarr">Shekar<br><br>
+                    <input class="check" type="checkbox" id="pranithr">Pranith<br><br>
+                    <input class="check" type="checkbox" id="lakshmanr">Lakshman<br><br>
+                    <input class="check" type="checkbox" id="subbur">Subbu<br><br>
+                    <input class="check" type="checkbox" id="subanir">Subani<br><br>
+                    <input class="check" type="checkbox" id="ajayr">Ajay<br><br>
+                    <input class="check" type="checkbox" id="naghir">Naghi<br><br>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="section1">
+        <div class="right" id="Water">Water
+            <div class="tick">
+                <form>
+                    <input class="check" type="checkbox" id="shekarw">Shekar<br><br>
+                    <input class="check" type="checkbox" id="pranithw">Pranith<br><br>
+                    <input class="check" type="checkbox" id="lakshmanw">Lakshman<br><br>
+                    <input class="check" type="checkbox" id="subbuw">Subbu<br><br>
+                    <input class="check" type="checkbox" id="subaniw">Subani<br><br>
+                    <input class="check" type="checkbox" id="ajayw">Ajay<br><br>
+                    <input class="check" type="checkbox" id="naghiw">Naghi<br><br>
+                </form>
+            </div>
+        </div>
+        <div class="right" id="paid">Paid
+            <div class="tick">
+                <form>
+                    <input class="check" type="checkbox" id="shekarp">Shekar<br><br>
+                    <input class="check" type="checkbox" id="pranithp">Pranith<br><br>
+                    <input class="check" type="checkbox" id="lakshmanp">Lakshman<br><br>
+                    <input class="check" type="checkbox" id="subbup">Subbu<br><br>
+                    <input class="check" type="checkbox" id="subanip">Subani<br><br>
+                    <input class="check" type="checkbox" id="ajayp">Ajay<br><br>
+                    <input class="check" type="checkbox" id="naghip">Naghi<br><br>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        // Function to refresh checkboxes in a section
+        function refreshSection(sectionId) {
+            const checkboxesInSection = document.querySelectorAll(`#${sectionId} .check`);
+            
+            // Check if all checkboxes in the section are checked
+            const allCheckedInSection = Array.from(checkboxesInSection).every(checkbox => checkbox.checked);
+            if (allCheckedInSection) {
+                // Clear localStorage for the section and refresh the section
+                checkboxesInSection.forEach(checkbox => localStorage.removeItem(checkbox.id));
+                location.reload();
+            }
+        }
+
+        // Attach event listeners for each section's checkboxes
+        const sectionIds = ['Rice', 'Water', 'Paid'];
+        sectionIds.forEach(sectionId => {
+            const checkboxesInSection = document.querySelectorAll(`#${sectionId} .check`);
+
+            checkboxesInSection.forEach(checkbox => {
+                checkbox.addEventListener('change', event => {
+                    localStorage.setItem(checkbox.id, checkbox.checked);
+                    refreshSection(sectionId);
+                });
+
+                const storedValue = localStorage.getItem(checkbox.id);
+                if (storedValue !== null) {
+                    checkbox.checked = (storedValue === 'true');
+                }
+            });
+        });
+    </script>
+    <div class="space"></div>
+</body>
+</html>

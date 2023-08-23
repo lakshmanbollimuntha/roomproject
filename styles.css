@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ddeedd;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    background: transparent;
+    padding: 10px;
+}
+
+.section1 {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0 0 0;
+}
+
+.left {
+    font-size: 2rem;
+    text-align: center;
+    width: 700px;
+    height: 590px;
+}
+
+.pics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
+
+.image {
+    padding: 1px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.image img {
+    max-width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    border-color: black;
+    border: thin;
+}
+
+.right {
+    width: 400px;
+    font-size: 2rem;
+    text-align: center;
+    
+    border-radius: 5px;
+}
+
+.tick {
+    font-size: 1.5rem;
+    margin-top: 50px;
+    display: block;
+    background-color: rgba(192, 210, 194, 0.8);
+}
+
+/* Styling for checkboxes */
+.check {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.check:checked {
+    background-color: #555;
+}
+
+.check:before {
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: white;
+    opacity: 0;
+}
+
+.check:checked:before {
+    opacity: 1;
+}
+
+.space {
+    width: 100%;
+    height: 100px;
+}
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .section1 {
+        display: block;
+        margin: 20px 0;
+    }
+    
+    .left, .right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .right {
+        background-color: rgba(192, 210, 194, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+    }
+    
+    .tick {
+        margin-top: 20px;
+    }
+    
+    .right form {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .right form input {
+        margin-bottom: 10px;
+    }
+}
